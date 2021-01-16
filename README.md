@@ -1,4 +1,4 @@
-<include a CircleCI status badge, here>
+[![duck251](https://circleci.com/gh/duck251/ml-prediction.svg?style=svg)](https://app.circleci.com/pipelines/github/DUCK251/ml-prediction)
 
 ## Project Overview
 
