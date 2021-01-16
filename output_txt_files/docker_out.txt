@@ -18,3 +18,11 @@
 0     0  6.575  296.0     15.3  396.9   4.98
 [2021-01-16 05:10:24,387] INFO in app: Prediction output from the pretrained model: 20.35373177134412
 172.17.0.1 - - [16/Jan/2021 05:10:24] "POST /predict HTTP/1.1" 200 -
+
+./make_prediction.sh
+Port: 8000
+{
+  "prediction": [
+    20.35373177134412
+  ]
+}
