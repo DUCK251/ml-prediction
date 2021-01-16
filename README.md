@@ -58,3 +58,8 @@ To test the prediction, execute:
 - run_docker.sh: build docker image and run the image
 - upload_docker.sh: push docker image to "duck25" repository.
 - run_kubernetes.sh: build deployment and forward the container port to a host
+
+Before executing upload_docker.sh, you should set environment variables.
+
+- DOCKER_USER : docker user id
+- DOCKER_PASS : docker user password

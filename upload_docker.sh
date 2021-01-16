@@ -14,4 +14,6 @@ echo "Docker ID and Image: $dockerpath"
 
 # Step 3:
 # Push image to a docker repository
+# Set environment variables DOCKER_USER and DOCKER_PASS for login
+echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin
 docker push ${dockerpath}:latest
