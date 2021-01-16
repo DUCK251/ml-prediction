@@ -1,43 +1,60 @@
 [![DUCK251](https://circleci.com/gh/DUCK251/ml-prediction.svg?style=svg)](https://app.circleci.com/pipelines/github/DUCK251/ml-prediction)
 
-## Project Overview
+# ml-prediction
 
-In this project, you will apply the skills you have acquired in this course to operationalize a Machine Learning Microservice API. 
+## Introduction
 
-You are given a pre-trained, `sklearn` model that has been trained to predict housing prices in Boston according to several features, such as average rooms in a home and data about highway access, teacher-to-pupil ratios, and so on. You can read more about the data, which was initially taken from Kaggle, on [the data source site](https://www.kaggle.com/c/boston-housing). This project tests your ability to operationalize a Python flask app—in a provided file, `app.py`—that serves out predictions (inference) about housing prices through API calls. This project could be extended to any pre-trained machine learning model, such as those for image recognition and data labeling.
+The `sklearn` model that has been trained to predict housing prices in Boston is given. The project goal is to operationalize this working, machine learning microservice using [kubernetes](https://kubernetes.io/), which is an open-source system for automating the management of containerized applications. 
 
-### Project Tasks
+In this project I did:
 
-Your project goal is to operationalize this working, machine learning microservice using [kubernetes](https://kubernetes.io/), which is an open-source system for automating the management of containerized applications. In this project you will:
-* Test your project code using linting
+* Test project code using linting
 * Complete a Dockerfile to containerize this application
-* Deploy your containerized application using Docker and make a prediction
+* Deploy containerized application using Docker and make a prediction
 * Improve the log statements in the source code for this application
 * Configure Kubernetes and create a Kubernetes cluster
 * Deploy a container using Kubernetes and make a prediction
-* Upload a complete Github repo with CircleCI to indicate that your code has been tested
+* Upload a complete Github repo with CircleCI to indicate that the code has been tested
 
-You can find a detailed [project rubric, here](https://review.udacity.com/#!/rubrics/2576/view).
+## Instruction
 
-**The final implementation of the project will showcase your abilities to operationalize production microservices.**
+We recommend working within a virtual environment. Instructions for setting up a virtual enviornment for your platform can be found in the python docs.
 
----
+```
+make setup
+source ~/.devops/bin/activate
+```
 
-## Setup the Environment
+Or you can set up a virtual environment not using Makefile,
 
-* Create a virtualenv and activate it
-* Run `make install` to install the necessary dependencies
+```
+python3 -m pip install --user virtualenv
+python3 -m venv env
+source env/bin/activate
+```
 
-### Running `app.py`
+Once you have your virtual environment setup and running, install dependencies by running:
 
-1. Standalone:  `python app.py`
-2. Run in Docker:  `./run_docker.sh`
-3. Run in Kubernetes:  `./run_kubernetes.sh`
+```
+make install
+```
 
-### Kubernetes Steps
+To run the server, execute:
 
-* Setup and Configure Docker locally
-* Setup and Configure Kubernetes locally
-* Create Flask app in Container
-* Run via kubectl
-# ml-prediction
+```
+python3 app.py
+```
+
+To test the prediction, execute:
+
+```
+./make_prediction.sh
+```
+
+## Short explanation of the files
+
+- app.py: web application predicting home price
+- .circleci/config.yml: configuration file for circleci
+- run_docker.sh: build docker image and run the image
+- upload_docker.sh: push docker image to "duck25" repository.
+- run_kubernetes.sh: build deployment and forward the container port to a host
