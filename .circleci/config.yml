@@ -27,10 +27,6 @@ jobs:
             python3 -m venv venv
             . venv/bin/activate
             make install
-      - save_cache:
-          paths:
-            - ./venv
-          key: v1-dependencies-{{ checksum "requirements.txt" }}
 
       # run lint!
       - run:
@@ -40,3 +36,8 @@ jobs:
             echo $PWD
             echo ls -al
             make lint
+
+      - save_cache:
+          paths:
+            - ./venv
+          key: v1-dependencies-{{ checksum "requirements.txt" }}
