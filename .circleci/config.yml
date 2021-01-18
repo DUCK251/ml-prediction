@@ -27,14 +27,18 @@ jobs:
             python3 -m venv venv
             . venv/bin/activate
             make install
+      
+      - run:
+          name: check
+          command: |
+            echo $PWD &&\
+            ls -al
 
       # run lint!
       - run:
           name: run lint
           command: |
             . venv/bin/activate
-            echo $PWD
-            echo ls -al
             make lint
 
       - save_cache:
