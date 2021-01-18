@@ -41,5 +41,6 @@ jobs:
           name: run lint
           command: |
             . venv/bin/activate
-            hadolint DockerFile
+            ls -al
+            hadolint ./DockerFile
             pylint --disable=R,C,W1203,W1202 app.py
